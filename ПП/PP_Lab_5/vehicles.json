@@ -1,0 +1,56 @@
+[
+    {
+        "price": 185000,
+        "manufactureDate": "15.03.2022",
+        "model": "Volvo",
+        "id": "TRUCK001",
+        "maxSpeed": 90,
+        "type": "суша",
+        "enginePower": 550
+    },
+    {
+        "price": 89500,
+        "manufactureDate": "20.07.2021",
+        "model": "DC",
+        "id": "SHIP001",
+        "maxSpeed": 35,
+        "type": "вода",
+        "enginePower": 430
+    },
+    {
+        "price": 325000,
+        "manufactureDate": "10.11.2020",
+        "model": "Ces",
+        "id": "PLANE001",
+        "maxSpeed": 226,
+        "type": "воздух",
+        "enginePower": 160
+    },
+    {
+        "price": 165000,
+        "manufactureDate": "05.12.2021",
+        "model": "R500",
+        "id": "TRUCK002",
+        "maxSpeed": 89,
+        "type": "суша",
+        "enginePower": 500
+    },
+    {
+        "price": 45000,
+        "manufactureDate": "30.05.2023",
+        "model": "VR50",
+        "id": "SHIP005",
+        "maxSpeed": 100,
+        "type": "вода",
+        "enginePower": 350
+    },
+    {
+        "price": 45000,
+        "manufactureDate": "30.05.2023",
+        "model": "VR50",
+        "id": "SHIP006",
+        "maxSpeed": 100,
+        "type": "вода",
+        "enginePower": 350
+    }
+]
