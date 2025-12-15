@@ -1,6 +1,7 @@
 import java.util.*;
 import java.text.SimpleDateFormat;
 import java.io.*;
+import javax.swing.*;
 
 public class Menu {
     private Scanner scanner;
@@ -36,7 +37,8 @@ public class Menu {
             System.out.println("9. JSON операции");
             System.out.println("10. Шифрование данных");
             System.out.println("11. Архивация данных");
-            System.out.println("12. Decorator - Улучшения для транспортных средств");
+            System.out.println("12. Изменение свойств транспортных средств");
+            System.out.println("13. Открыть графический интерфейс (Swing)");
             System.out.println("0. Выйти из программы");
             System.out.print("Выберите пункт меню: ");
 
@@ -56,6 +58,7 @@ public class Menu {
                     case 10: encryptionOperations(); break;
                     case 11: archivationOperations(); break;
                     case 12: decoratorOperations(); break;
+                    case 13: openGUI(); break;
                     case 0:
                         saveData();
                         System.out.println();
@@ -63,12 +66,23 @@ public class Menu {
                         System.out.println("ДО СВИДАНИЯ!");
                         return;
                     default:
-                        System.out.println("Неверный выбор! Пожалуйста, выберите пункт от 0 до 12.");
+                        System.out.println("Неверный выбор! Пожалуйста, выберите пункт от 0 до 13.");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Ошибка: введите корректное число!");
             }
         }
+    }
+
+    private void openGUI() {
+        System.out.println("Запуск графического интерфейса...");
+        SwingUtilities.invokeLater(() -> {
+            try {
+                new VehicleTableGUI().setVisible(true);
+            } catch (Exception e) {
+                System.out.println("Ошибка запуска GUI: " + e.getMessage());
+            }
+        });
     }
 
     private void loadData() {

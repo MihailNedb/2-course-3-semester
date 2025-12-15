@@ -1,15 +1,39 @@
 import java.io.*;
+import javax.swing.*;
 
 public class TransportCompany {
     public static void main(String[] args) {
-
-
         createTestData();
-        Menu menu = new Menu();
-        menu.showMenu();
+
+        // Запрашиваем режим работы
+        String[] options = {"Графический интерфейс (Swing)", "Консольное меню"};
+        int choice = JOptionPane.showOptionDialog(null,
+                "Выберите режим работы программы:",
+                "Транспортная компания",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+        if (choice == 0) {
+            // Графический интерфейс
+            SwingUtilities.invokeLater(() -> {
+                try {
+                    UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                new VehicleTableGUI().setVisible(true);
+            });
+        } else {
+            // Консольное меню
+            Menu menu = new Menu();
+            menu.showMenu();
+        }
     }
 
-    private static void createTestData() {
+    public static void createTestData() {
         File testFile = new File("input.txt");
         if (!testFile.exists()) {
             try (PrintWriter writer = new PrintWriter(new FileWriter("input.txt"))) {
@@ -26,12 +50,10 @@ public class TransportCompany {
             }
         }
 
-        // Создаем дополнительные тестовые файлы
         createDecoratorTestData();
     }
 
     private static void createDecoratorTestData() {
-        // Создаем демонстрационные улучшенные ТС в отдельном файле
         File decoratedFile = new File("decorated_demo.txt");
         if (!decoratedFile.exists()) {
             try (PrintWriter writer = new PrintWriter(new FileWriter("decorated_demo.txt"))) {
